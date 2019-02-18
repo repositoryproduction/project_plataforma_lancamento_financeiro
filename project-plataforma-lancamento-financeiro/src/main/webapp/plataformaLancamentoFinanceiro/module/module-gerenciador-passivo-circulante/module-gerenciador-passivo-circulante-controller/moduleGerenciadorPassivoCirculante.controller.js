@@ -1,7 +1,6 @@
 function savePassivoCirculante(event) {
 	
     var gerenciadorPassivoCirculanteFavorecido = document.getElementById('gerenciadorPassivoCirculanteFavorecidoView').value;
-    var gerenciadorPassivoCirculanteDataAquisicao = document.getElementById('gerenciadorPassivoCirculanteDataAquisicaoView').value;
     var gerenciadorPassivoCirculanteDataPagamento = document.getElementById('gerenciadorPassivoCirculanteDataPagamentoView').value;
     var gerenciadorPassivoCirculanteProdutoServico = document.getElementById('gerenciadorPassivoCirculanteProdutoServicoView').value;
     var gerenciadorPassivoCirculanteNotaFiscal = document.getElementById('gerenciadorPassivoCirculanteNotaFiscalView').value;
@@ -13,7 +12,6 @@ function savePassivoCirculante(event) {
 
     gerenciadorPassivoCirculanteModel = {
         gerenciadorPassivoCirculanteFavorecidoModelModel: gerenciadorPassivoCirculanteFavorecido,
-        gerenciadorPassivoCirculanteDataAquisicaoModel: gerenciadorPassivoCirculanteDataAquisicao,
         gerenciadorPassivoCirculanteDataPagamentoModel: gerenciadorPassivoCirculanteDataPagamento,
         gerenciadorPassivoCirculanteProdutoServicoModel: gerenciadorPassivoCirculanteProdutoServico,
         gerenciadorPassivoCirculanteNotaFiscalModel: gerenciadorPassivoCirculanteNotaFiscal,
@@ -66,7 +64,6 @@ function findAllPassivoCirculante() {
 
     //     for (let i = 0; i < passivoCirculanteList.length; i++) {
     //         var gerenciadorPassivoCirculanteFavorecidoView = passivoCirculanteList[i].gerenciadorPassivoCirculanteFavorecido;
-    //         var gerenciadorPassivoCirculanteDataAquisicaoView = passivoCirculanteList[i].gerenciadorPassivoCirculanteDataAquisicao,
     //         var gerenciadorPassivoCirculanteDataPagamentoView = passivoCirculanteList[i].gerenciadorPassivoCirculanteDataPagamento,
     //         var gerenciadorPassivoCirculanteProdutoServicoView = passivoCirculanteList[i].gerenciadorPassivoCirculanteProdutoServico,
     //         var gerenciadorPassivoCirculanteNotaFiscalView = passivoCirculanteList[i].gerenciadorPassivoCirculanteNotaFiscal,
@@ -78,7 +75,6 @@ function findAllPassivoCirculante() {
     //     }
 
     //     passivoCirculanteResult.innerHTML += '<tr><td>' + gerenciadorPassivoCirculanteFavorecidoView +
-    //         '<tr><td>' + gerenciadorPassivoCirculanteDataAquisicaoView +
     //         '<tr><td>' + gerenciadorPassivoCirculanteDataPagamentoView +
     //         '<tr><td>' + gerenciadorPassivoCirculanteProdutoServicoView +
     //         '<tr><td>' + gerenciadorPassivoCirculanteNotaFiscalView +
