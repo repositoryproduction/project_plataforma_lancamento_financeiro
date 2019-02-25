@@ -1,8 +1,9 @@
 package br.com.plataformalancamentofinanceiro.enumeration;
 
 public enum TipoCategoriaPessoaEnumeration {
-    INSTITUICAO_FINANCEIRA,
+	INSTITUICAO_FINANCEIRA,
     INSTITUICAO_EDUCACIONAL,
+    ASSOCIACAO_RELIGIOSA,
     ALIMENTOS_RESTAURANTE,
     ALIMENTOS_LANCHONETE,
     ALIMENTOS_PADARIA,
