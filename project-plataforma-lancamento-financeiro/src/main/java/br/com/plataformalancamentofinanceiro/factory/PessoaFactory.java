@@ -14,7 +14,7 @@ public class PessoaFactory implements Serializable {
 	
 	public static PessoaDomain getFavorecidoSinagogaKeterTorah() {
 		PessoaDomain pessoaDomain = new PessoaDomain();
-			pessoaDomain.setIsAtivo(Boolean.FALSE);
+			pessoaDomain.setIsAtivo(Boolean.TRUE);
 			pessoaDomain.setIsFontePagamento(Boolean.FALSE);
 			pessoaDomain.setNome("Sinagoga Keter Torah");
 			pessoaDomain.setTipoCategoriaPessoaEnumeration(TipoCategoriaPessoaEnumeration.ASSOCIACAO_RELIGIOSA);
