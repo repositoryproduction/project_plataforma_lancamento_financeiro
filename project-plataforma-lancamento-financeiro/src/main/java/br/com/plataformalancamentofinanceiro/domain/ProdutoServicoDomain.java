@@ -11,7 +11,9 @@ public class ProdutoServicoDomain implements Serializable {
 	private String nome;
 	
 	private String descricao;
-
+	
+	public ProdutoServicoDomain() { }
+	
 	public ProdutoServicoDomain(Long codigo, String nome, String descricao) {
 		super();
 		this.codigo = codigo;
