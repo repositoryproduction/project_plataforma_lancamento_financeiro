@@ -17,12 +17,6 @@ import br.com.plataformalancamentofinanceiro.factory.PassivoCirculanteFactory;
 @Consumes({MediaType.APPLICATION_JSON})
 public class PassivoCirculanteResource {
 
-//	@GET
-//	@Produces(MediaType.TEXT_PLAIN)
-//	public String mensagem() {
-//		return "REST - Plataforma de Lançamento Financeiro";
-//	}
-	
 	@GET
 	public List<PassivoCirculanteDomain> findAll() {
 		List<PassivoCirculanteDomain> passivoCirculanteDomainList = new ArrayList<PassivoCirculanteDomain>();
