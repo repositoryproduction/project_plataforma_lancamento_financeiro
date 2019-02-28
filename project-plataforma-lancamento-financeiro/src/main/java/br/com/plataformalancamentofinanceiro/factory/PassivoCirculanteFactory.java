@@ -12,10 +12,10 @@ public class PassivoCirculanteFactory {
 	public static PassivoCirculanteDomain getPassivoCirculanteSinagogaKeterTorahDomain() {
 		PassivoCirculanteDomain passivoCirculanteDomain = new PassivoCirculanteDomain();
 			passivoCirculanteDomain.setDataPagamento(LocalDate.now());
-			passivoCirculanteDomain.setValorAquisicao(500D);
+			passivoCirculanteDomain.setValorPagamento(500D);
 			passivoCirculanteDomain.setFavorecido(PessoaFactory.getFavorecidoSinagogaKeterTorah());
 			passivoCirculanteDomain.setFontePagamentoDomain(PessoaFactory.getBancoFontePagamentoBancoSantander());
-			passivoCirculanteDomain.setNotaFiscal("");
+			passivoCirculanteDomain.setNotaFiscal(null);
 			passivoCirculanteDomain.setProdutoServicoDomain(ProdutoServicoFactory.getProdutoServicoMensalidade());
 			passivoCirculanteDomain.setResposavelPagamentoDomain(PessoaFactory.getResponsavelPagamentoJamileBatistaAlves());
 			passivoCirculanteDomain.setTipoCanalPagamentoEnumeration(TipoCanalPagamentoEnumeration.PAGAMENTO_INTERNET_BANKING);

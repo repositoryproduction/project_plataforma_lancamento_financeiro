@@ -24,7 +24,7 @@ public class PassivoCirculanteDomain implements Serializable {
 	
 	private String notaFiscal;
 	
-	private Double valorAquisicao;
+	private Double valorPagamento;
 	
 	private PessoaDomain fontePagamentoDomain;
 	
@@ -78,14 +78,14 @@ public class PassivoCirculanteDomain implements Serializable {
 		this.notaFiscal = notaFiscal;
 	}
 
-	public Double getValorAquisicao() {
-		return valorAquisicao;
+	public Double getValorPagamento() {
+		return valorPagamento;
 	}
 
-	public void setValorAquisicao(Double valorAquisicao) {
-		this.valorAquisicao = valorAquisicao;
+	public void setValorPagamento(Double valorPagamento) {
+		this.valorPagamento = valorPagamento;
 	}
-
+	
 	public PessoaDomain getFontePagamentoDomain() {
 		return fontePagamentoDomain;
 	}
