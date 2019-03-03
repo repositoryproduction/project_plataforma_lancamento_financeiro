@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="gerenciadorPassivoCirculanteModulo">
 
 <head>
 	<meta charset="utf-8" />
-	<title>Plataforma de Lançamento Financeiro</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
+	<script type="text/javascript" src="../../resources/library/angular-js-v1.7.7/angular.min.js"></script>
+	<script type="text/javascript" src="../module-gerenciador-passivo-circulante/module-gerenciador-passivo-circulante-service/moduleGerenciadorPassivoCirculantService.js"></script>
 	<link rel="stylesheet" href="../../resources/style/plataformalancamentofinanceiro.css" />
 	<link rel="stylesheet" href="../../resources/style/bootstrap-colorpicker.min.css" />
 	<link rel="stylesheet" href="../../resources/style/bootstrap-datepicker.min.css" />
@@ -15,9 +16,10 @@
 	<link rel="stylesheet" href="../../resources/style/bootstrap-tagsinput.css" />
 	<link rel="stylesheet" href="../../resources/style/bootstrap-timepicker.min.css" />
 	<link href="../../resources/library/fontawesome-free-5.7.1-web/css/all.css">
+	<title>Plataforma de Lançamento Financeiro</title>
 </head>
 
-<body onload="findAllPassivoCirculante()">
+<body ng-controller="gerenciadorPassivoCirculanteController">
 
 	<div id="app" class="app app-header-fixed app-sidebar-fixed">
 
@@ -448,6 +450,9 @@
 		</sidebar>
 		<!-- END #sidebar -->
 
+		<div class="row"></div>
+		<br/><br/>
+
 		<ul class="breadcrumb float-xl-right">
 			<li class="breadcrumb-item"><a href="#">Demonstrativo Financeiro</a></li>
 			<li class="breadcrumb-item active">Gerenciador de Passivo Circulante</li>
@@ -455,25 +460,25 @@
 
 		<!-- BEGIN #content -->
 		<div id="content" class="app-content">
+
 			<h6 class="page-header">
 				Gerenciamento de Passivo Circulante
 			</h6>
 
 			<!-- BEGIN row -->
 			<div class="row">
+
 				<div class="col-xl-12">
 					<div class="card card-inverse m-b-15">
-						<!-- BEGIN card-header -->
+
 						<div class="card-header card-header-inverse">
 							<h4 class="card-header-title">Últimas Movimentações de Passivos Circulantes</h4>
 							<div class="card-header-btn">
 								<a href="#" data-toggle="card-expand" class="btn btn-success"><i class="fa fa-expand"></i></a>
 								<a href="#" data-toggle="card-refresh" class="btn btn-warning"><i class="fa fa-redo"></i></a>
-								<!-- <a href="#" data-toggle="card-remove" class="btn btn-danger"><i class="fa fa-trash-alt"></i></a> -->
 							</div>
 						</div>
-						<!-- END card-header -->
-						<!-- BEGIN card-body -->
+
 						<div class="card-body">
 							<!-- <p class="f-s-12 text-muted">For inverse version table, add <code>.table-dark</code> to the main table.</p> -->
 							<div class="table-responsive">
@@ -488,18 +493,17 @@
 										</tr>
 									</thead>
 									<tbody id="consultarPassivoCirculanteTable">
-									
-										<!-- <tr>
-											<td>1</td>
-											<td>30/01/2019</td>
-											<td>Supermercado Pra Você</td>
-											<td>José Quintin</td>
+										<tr ng-repeat="gerenciadorPassivoCirculanteResultado in recuperarGerenciadorPassivoCirculanteList">
+											<td>{{gerenciadorPassivoCirculanteResultado.codigo}}</td>
+											<td>{{ gerenciadorPassivoCirculanteResultado.dataPagamento | date: 'dd/MM/yyyy' }}</td>
+											<td>{{gerenciadorPassivoCirculanteResultado.favorecido.nome}}</td>
+											<td>{{gerenciadorPassivoCirculanteResultado.resposavelPagamentoDomain.nome}}</td>
 											<td class="btn-col" style="white-space: nowrap">
 												<a href="#" class="btn btn-silver btn-xs m-r-2"><i class="fa fa-user"></i></a>
 												<a href="#" class="btn btn-silver btn-xs m-r-2"><i class="fa fa-cog"></i></a>
 												<a href="#" class="btn btn-silver btn-xs"><i class="fa fa-times"></i></a>
 											</td>
-										</tr> -->
+										</tr>
 									</tbody>
 								</table>
 							</div>

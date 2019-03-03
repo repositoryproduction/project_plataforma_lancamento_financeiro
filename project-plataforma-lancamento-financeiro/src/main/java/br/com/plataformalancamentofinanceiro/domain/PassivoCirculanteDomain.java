@@ -1,7 +1,7 @@
 package br.com.plataformalancamentofinanceiro.domain;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -18,7 +18,7 @@ public class PassivoCirculanteDomain implements Serializable {
 	
 	private PessoaDomain favorecido;
 	
-	private LocalDate dataPagamento;
+	private Date dataPagamento;
 	
 	private ProdutoServicoDomain produtoServicoDomain;
 	
@@ -54,11 +54,11 @@ public class PassivoCirculanteDomain implements Serializable {
 		this.favorecido = favorecido;
 	}
 
-	public LocalDate getDataPagamento() {
+	public Date getDataPagamento() {
 		return dataPagamento;
 	}
 
-	public void setDataPagamento(LocalDate dataPagamento) {
+	public void setDataPagamento(Date dataPagamento) {
 		this.dataPagamento = dataPagamento;
 	}
 
