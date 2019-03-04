@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="gerenciadorPassivoCirculanteSaveModulo">
 <head>
 	<meta charset="utf-8" />
-	<title>Plataforma de Lançamento Financeiro</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
-	<meta content="" name="author" />
+    <meta content="" name="author" />
+    <script type="text/javascript" src="../../resources/library/angular-js-v1.7.7/angular.min.js"></script>
+    <script type="text/javascript" src="../module-gerenciador-passivo-circulante/module-gerenciador-passivo-circulante-controller/moduleGerenciadorPassivoCirculanteController.js"></script>
 	<link rel="stylesheet" href="../../resources/style/plataformalancamentofinanceiro.css" />
 	<link rel="stylesheet" href="../../resources/style/bootstrap-colorpicker.min.css" />
 	<link rel="stylesheet" href="../../resources/style/bootstrap-datepicker.min.css" />
@@ -13,10 +14,11 @@
 	<link rel="stylesheet" href="../../resources/style/bootstrap-slider.min.css" />
 	<link rel="stylesheet" href="../../resources/style/bootstrap-tagsinput.css" />
 	<link rel="stylesheet" href="../../resources/style/bootstrap-timepicker.min.css" />
-	<link href="../../resources/library/fontawesome-free-5.7.1-web/css/all.css">
+    <link href="../../resources/library/fontawesome-free-5.7.1-web/css/all.css">
+    <title>Plataforma de Lançamento Financeiro</title>
 </head>
 
-<body>
+<body ng-controller="gerenciadorPassivoCirculanteSaveController">
 
 	<div id="app" class="app app-header-fixed app-sidebar-fixed">
 
@@ -467,8 +469,8 @@
 						<div class="card-header card-header-inverse">
 							<h4 class="card-header-title">Cadastro de Passivo Circulante</h4>
 							<div class="card-header-btn">
-								<a href="#" data-toggle="card-expand" class="btn btn-success"><i class="fa fa-expand"></i></a>
-								<a href="#" data-toggle="card-refresh" class="btn btn-warning"><i class="fa fa-redo"></i></a>
+								<a href="#" data-toggle="card-expand" class="btn btn-primary"><i class="fa fa-expand"></i></a>
+								<a href="#" data-toggle="card-refresh" class="btn btn-primary"><i class="fa fa-redo"></i></a>
 								<!-- 								<a href="#" data-toggle="card-remove" class="btn btn-danger"><i class="fa fa-trash-alt"></i></a> -->
 							</div>
 						</div>
@@ -478,10 +480,11 @@
 							<!-- <p class="f-s-12 text-muted">Add <code>.form-inline</code> to your form (which doesn't have to be a <code>&lt;form&gt;</code>) for left-aligned and inline-block controls. This only applies to forms within viewports that are at least <b>768px</b> wide.</p> -->
 							<form id="cadastrarPassivoCirculanteForm" onsubmit="savePassivoCirculante(event)" class="row row-space-10 m-b-10">
 
-								<div class="form-group col-md-10">
+								<div class="form-group col-md-6">
 									<label for="gerenciadorPassivoCirculanteFavorecidoView">Favorecido</label>
 									<select id="gerenciadorPassivoCirculanteFavorecidoView" class="selectpicker form-control" data-style="btn-default" data-live-search="true">
-										<option>Selecione</option>
+                                        <option>Selecione</option>
+                                        <option>Supermercado Pra Você (Taguatinga Centro) </option>
 										<option>Sinagoga Keter Torah</option>
 										<option>Banco Caixa Econômica Federal</option>
 										<option>Banco Santander</option>
@@ -492,13 +495,23 @@
 									</select>
 								</div>
 
-								<div class="form-group col-md-2">
+								<div class="form-group col-md-3">
 									<label for="gerenciadorPassivoCirculanteDataPagamentoView">Data do Pagamento</label>
 									<input id="gerenciadorPassivoCirculanteDataPagamentoView" type="text" placeholder="DD/MM/AAAA" class="form-control" />
+                                </div>
+
+                                <div class="form-group col-md-3">
+									<label for="gerenciadorPassivoCirculanteNotaFiscalView">Número da Nota Fiscal</label>
+									<input id="gerenciadorPassivoCirculanteNotaFiscalView" type="text" placeholder="Nota Fiscal" class="form-control" />
+                                </div>
+                                
+                                <div class="form-group col-md-4">
+									<label for="passivoCirculanteProdutoServicoView">Produto/Serviço</label>
+									<input id="passivoCirculanteProdutoServicoView" type="text" placeholder="Descrição do Produto ou Serviço" class="form-control" />
 								</div>
 
-								<div class="form-group col-md-3">
-									<label for="gerenciadorPassivoCirculanteProdutoServicoView">Produto/Serviço</label>
+								<div class="form-group col-md-4">
+									<label for="gerenciadorPassivoCirculanteProdutoServicoView">Categoria do Produto/Serviço</label>
 									<select id="gerenciadorPassivoCirculanteProdutoServicoView" class="selectpicker form-control" data-style="btn-default"
 									 data-live-search="true">
 										<option>Selecione</option>
@@ -511,23 +524,76 @@
 									</select>
 								</div>
 
-								<div class="form-group col-md-3">
-									<label for="gerenciadorPassivoCirculanteNotaFiscalView">Número da Nota Fiscal</label>
-									<input id="gerenciadorPassivoCirculanteNotaFiscalView" type="text" placeholder="Nota Fiscal" class="form-control" />
-								</div>
-
-								<div class="form-group col-md-3">
+								<div class="form-group col-md-2">
 									<label for="gerenciadorPassivoCirculanteValorDespesaView">Valor da Despesa</label>
 									<input id="gerenciadorPassivoCirculanteValorDespesaView" type="text" placeholder="R$" class="form-control" />
+                                </div>
+
+                                <div class="form-group col-md-2">
+									<label for="gerenciadorPassivoCirculanteProdutoServicoView">Quantidade</label>
+									<select id="gerenciadorPassivoCirculanteProdutoServicoView" class="selectpicker form-control" data-style="btn-default"
+									 data-live-search="true">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+									</select>
 								</div>
 
-								<div class="form-group col-md-3">
-									<label for="gerenciadorPassivoCirculanteTipoPassivoView">Tipo do Passivo</label>
-									<select id="gerenciadorPassivoCirculanteTipoPassivoView" class="selectpicker form-control" data-style="btn-default"
+                                <div class="form-group col-md-12">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-silver btn-block">Cadastrar Item</button>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <div class="card-body">
+                                        <table class="table table-hover m-b-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Código</th>
+                                                    <th>Produto ou Serviço</th>
+                                                    <th>Valor do Item</th>
+                                                    <th>Quantidade</th>
+                                                    <th>Valor Total</th>
+                                                    <th>Ação</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Cuzcuz</td>
+                                                    <td>R$ 2.50</td>
+                                                    <td>2</td>
+                                                    <td>R$ 5.00</td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-times"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Arroz</td>
+                                                    <td>R$ 5.00</td>
+                                                    <td>1</td>
+                                                    <td>R$ 5.00</td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-times"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-4">
+									<label for="gerenciadorPassivoCirculanteResponsavelPagamentoView">Responsável pelo Pagamento</label>
+									<select id="gerenciadorPassivoCirculanteResponsavelPagamentoView" class="selectpicker form-control" data-style="btn-default"
 									 data-live-search="true">
 										<option>Selecione</option>
-										<option>Passivo Fixo</option>
-										<option>Passivo Variável</option>
+										<option>Jamile Batista Alves</option>
+										<option>José Quintin</option>
 									</select>
 								</div>
 
@@ -543,25 +609,41 @@
 										<option>Banco Nubank</option>
 										<option>Banco Inter</option>
 									</select>
-								</div>
-
+                                </div>
+                                
 								<div class="form-group col-md-4">
 									<label for="gerenciadorPassivoCirculanteCanalPagamentoView">Canal do Pagamento</label>
 									<select id="gerenciadorPassivoCirculanteCanalPagamentoView" class="selectpicker form-control" data-style="btn-default"
 									 data-live-search="true">
-										<option>Selecione</option>
+                                        <option>Selecione</option>
+                                        <option>Caixa do Estabelecimento</option>
 										<option>Caixa Eletrônico</option>
 										<option>Transferência Bancária</option>
 									</select>
-								</div>
+                                </div>
 
-								<div class="form-group col-md-4">
-									<label for="gerenciadorPassivoCirculanteResponsavelPagamentoView">Responsável pelo Pagamento</label>
-									<select id="gerenciadorPassivoCirculanteResponsavelPagamentoView" class="selectpicker form-control" data-style="btn-default"
+                                <div class="form-group col-md-10">
+									<label for="gerenciadorPassivoCirculanteCanalPagamentoView">Forma de Pagamento</label>
+									<select id="gerenciadorPassivoCirculanteCanalPagamentoView" class="selectpicker form-control" data-style="btn-default"
 									 data-live-search="true">
-										<option>Selecione</option>
-										<option>Jamile Batista Alves</option>
-										<option>José Quintin</option>
+                                        <option>Selecione</option>
+                                        <option>Dinheiro</option>
+										<option>Cartão de Crédito</option>
+										<option>Cartão de Débito</option>
+									</select>
+                                </div>
+                                
+                                <div class="form-group col-md-2">
+									<label for="gerenciadorPassivoCirculanteProdutoServicoView">Parcelamento</label>
+									<select id="gerenciadorPassivoCirculanteProdutoServicoView" class="selectpicker form-control" data-style="btn-default"
+                                     data-live-search="true">
+                                        <option>0</option>
+                                        <option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
 									</select>
 								</div>
 
@@ -708,7 +790,6 @@
 		</div>
 		<!-- END theme-panel -->
 
-		<script src="module-gerenciador-passivo-circulante-controller/moduleGerenciadorPassivoCirculante.controller.js"></script>
 		<script src="../../resources/script/plataformalancamentofinanceiro.js"></script>
 		<script src="../../resources/script/form-plugins.demo.js"></script>
 		<script src="../../resources/script/jquery.maskedinput.js"></script>
