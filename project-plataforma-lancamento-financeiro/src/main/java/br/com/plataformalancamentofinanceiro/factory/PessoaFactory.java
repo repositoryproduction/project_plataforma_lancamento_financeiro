@@ -22,6 +22,16 @@ public class PessoaFactory implements Serializable {
 		return pessoaDomain;
 	}
 	
+	public static PessoaDomain getSupermercadoPraVoce() {
+		PessoaDomain pessoaDomain = new PessoaDomain();
+			pessoaDomain.setIsAtivo(Boolean.TRUE);
+			pessoaDomain.setIsFontePagamento(Boolean.FALSE);
+			pessoaDomain.setNome("Supermercado Pra Voce");
+			pessoaDomain.setTipoCategoriaPessoaEnumeration(TipoCategoriaPessoaEnumeration.SUPERMERCADO);
+			pessoaDomain.setTipoPessoaEnumeration(TipoPessoaEnumeration.PESSOA_JURIDICA);
+		return pessoaDomain;
+	}
+	
 	public static PessoaDomain getBancoFontePagamentoBancoSantander() {
 		PessoaDomain fontePagamentoDomain = new PessoaDomain();
 			fontePagamentoDomain.setIsAtivo(Boolean.TRUE);
@@ -32,11 +42,31 @@ public class PessoaFactory implements Serializable {
 		return fontePagamentoDomain;
 	}
 	
+	public static PessoaDomain getBancoCaixaEconomicaFederal() {
+		PessoaDomain fontePagamentoDomain = new PessoaDomain();
+			fontePagamentoDomain.setIsAtivo(Boolean.TRUE);
+			fontePagamentoDomain.setIsFontePagamento(Boolean.TRUE);
+			fontePagamentoDomain.setNome("Banco Caixa Economica Federal");
+			fontePagamentoDomain.setTipoCategoriaPessoaEnumeration(TipoCategoriaPessoaEnumeration.INSTITUICAO_FINANCEIRA);
+			fontePagamentoDomain.setTipoPessoaEnumeration(TipoPessoaEnumeration.PESSOA_JURIDICA);
+		return fontePagamentoDomain;
+	}
+	
 	public static PessoaDomain getResponsavelPagamentoJamileBatistaAlves() {
 		PessoaDomain fontePagamentoDomain = new PessoaDomain();
 			fontePagamentoDomain.setIsAtivo(Boolean.TRUE);
 			fontePagamentoDomain.setIsFontePagamento(Boolean.TRUE);
 			fontePagamentoDomain.setNome("Jamile Batista Alves");
+			fontePagamentoDomain.setTipoCategoriaPessoaEnumeration(null);
+			fontePagamentoDomain.setTipoPessoaEnumeration(TipoPessoaEnumeration.PESSOA_FISICA);
+		return fontePagamentoDomain;
+	}
+	
+	public static PessoaDomain getResponsavelPagamentoJoseQuintin() {
+		PessoaDomain fontePagamentoDomain = new PessoaDomain();
+			fontePagamentoDomain.setIsAtivo(Boolean.TRUE);
+			fontePagamentoDomain.setIsFontePagamento(Boolean.TRUE);
+			fontePagamentoDomain.setNome("Jose Quintin");
 			fontePagamentoDomain.setTipoCategoriaPessoaEnumeration(null);
 			fontePagamentoDomain.setTipoPessoaEnumeration(TipoPessoaEnumeration.PESSOA_FISICA);
 		return fontePagamentoDomain;

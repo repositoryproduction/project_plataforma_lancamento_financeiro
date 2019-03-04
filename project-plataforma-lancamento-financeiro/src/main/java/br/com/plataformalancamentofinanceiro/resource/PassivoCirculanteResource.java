@@ -19,9 +19,7 @@ public class PassivoCirculanteResource {
 
 	@GET
 	public List<PassivoCirculanteDomain> findAll() {
-		List<PassivoCirculanteDomain> passivoCirculanteDomainList = new ArrayList<PassivoCirculanteDomain>();
-			passivoCirculanteDomainList.add(PassivoCirculanteFactory.getPassivoCirculanteSinagogaKeterTorahDomain());
-		return passivoCirculanteDomainList;
+		return PassivoCirculanteFactory.getPassivoCirculanteDomainList();
 	}
 	
 }

@@ -62,7 +62,7 @@ public class PessoaDomain implements Serializable {
 	public void setIsAtivo(Boolean isAtivo) {
 		this.isAtivo = isAtivo;
 	}
-
+	
 	public Boolean getIsFontePagamento() {
 		return isFontePagamento;
 	}
