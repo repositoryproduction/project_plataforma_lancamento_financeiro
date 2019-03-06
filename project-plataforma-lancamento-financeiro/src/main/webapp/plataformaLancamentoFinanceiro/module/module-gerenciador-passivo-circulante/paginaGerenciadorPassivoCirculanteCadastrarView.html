@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="gerenciadorPassivoCirculanteSaveModulo">
+<html lang="en" ng-app="gerenciadorPassivoCirculanteModulo">
 <head>
 	<meta charset="utf-8" />
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
@@ -7,6 +7,7 @@
     <meta content="" name="author" />
     <script type="text/javascript" src="../../resources/library/angular-js-v1.7.7/angular.min.js"></script>
     <script type="text/javascript" src="../module-gerenciador-passivo-circulante/module-gerenciador-passivo-circulante-controller/moduleGerenciadorPassivoCirculanteController.js"></script>
+    <script type="text/javascript" src="../module-gerenciador-passivo-circulante/module-gerenciador-passivo-circulante-service/moduleGerenciadorPassivoCirculantService.js"></script>
 	<link rel="stylesheet" href="../../resources/style/plataformalancamentofinanceiro.css" />
 	<link rel="stylesheet" href="../../resources/style/bootstrap-colorpicker.min.css" />
 	<link rel="stylesheet" href="../../resources/style/bootstrap-datepicker.min.css" />
@@ -14,11 +15,11 @@
 	<link rel="stylesheet" href="../../resources/style/bootstrap-slider.min.css" />
 	<link rel="stylesheet" href="../../resources/style/bootstrap-tagsinput.css" />
 	<link rel="stylesheet" href="../../resources/style/bootstrap-timepicker.min.css" />
-    <link href="../../resources/library/fontawesome-free-5.7.1-web/css/all.css">
+    <link rel="stylesheet" href="../../resources/library/fontawesome-free-5.7.1-web/css/all.css">
     <title>Plataforma de Lançamento Financeiro</title>
 </head>
 
-<body ng-controller="gerenciadorPassivoCirculanteSaveController">
+<body ng-controller="gerenciadorPassivoCirculanteController">
 
 	<div id="app" class="app app-header-fixed app-sidebar-fixed">
 
@@ -236,12 +237,12 @@
 					<li class="has-sub">
 						<a href="#">
 							<span class="nav-icon"><i class="fa fa-envelope"></i> </span>
-							<span class="nav-text">Lançamentos</span>
+							<span class="nav-text">Passivo Circulante</span>
 							<span class="nav-caret"><b class="caret"></b></span>
 						</a>
 						<ul class="nav-submenu">
-							<li><a href="paginaGerenciadorPassivoCirculanteCadastrarView.html">Cadastrar Passivo Circulante</a></li>
-							<li><a href="paginaGerenciadorPassivoCirculanteConsultarView.html">Consultar Passivo Circulante</a></li>
+							<li><a href="paginaGerenciadorPassivoCirculanteCadastrarView.html">Cadastrar</a></li>
+							<li><a href="paginaGerenciadorPassivoCirculanteConsultarView.html">Gerenciar</a></li>
 						</ul>
 					</li>
 					<li class="nav-divider"></li>
@@ -448,6 +449,8 @@
 			<!-- END scrollbar -->
 		</sidebar>
 		<!-- END #sidebar -->
+		
+		<br /><br />
 
 		<ul class="breadcrumb float-xl-right">
 			<li class="breadcrumb-item"><a href="#">Demonstrativo Financeiro</a></li>
@@ -478,14 +481,15 @@
 						<!-- BEGIN card-body -->
 						<div class="card-body">
 							<!-- <p class="f-s-12 text-muted">Add <code>.form-inline</code> to your form (which doesn't have to be a <code>&lt;form&gt;</code>) for left-aligned and inline-block controls. This only applies to forms within viewports that are at least <b>768px</b> wide.</p> -->
-							<form id="cadastrarPassivoCirculanteForm" onsubmit="savePassivoCirculante(event)" class="row row-space-10 m-b-10">
+							<form id="cadastrarPassivoCirculanteForm" class="row row-space-10 m-b-10">
 
 								<div class="form-group col-md-6">
-									<label for="gerenciadorPassivoCirculanteFavorecidoView">Favorecido</label>
-									<select id="gerenciadorPassivoCirculanteFavorecidoView" class="selectpicker form-control" data-style="btn-default" data-live-search="true">
+									<label for="favorecido">Favorecido</label>
+									<select id="favorecido" name="favorecido" ng-model="passivoCirculanteModel.favorecido.nome" class="selectpicker form-control" data-style="btn-default" data-live-search="true">
                                         <option>Selecione</option>
                                         <option>Supermercado Pra Você (Taguatinga Centro) </option>
-										<option>Sinagoga Keter Torah</option>
+                                        <option>Sinagoga Keter Torah</option>
+                                        <option>Hospital Santa Helena</option>
 										<option>Banco Caixa Econômica Federal</option>
 										<option>Banco Santander</option>
 										<option>Banco do Brasil</option>
@@ -496,23 +500,23 @@
 								</div>
 
 								<div class="form-group col-md-3">
-									<label for="gerenciadorPassivoCirculanteDataPagamentoView">Data do Pagamento</label>
-									<input id="gerenciadorPassivoCirculanteDataPagamentoView" type="text" placeholder="DD/MM/AAAA" class="form-control" />
+									<label for="dataPagamento">Data do Pagamento</label>
+									<input id="dataPagamento" name="dataPagamento" ng-model="passivoCirculanteModel.dataPagamento" type="text" placeholder="DD/MM/AAAA" class="form-control" />
                                 </div>
 
                                 <div class="form-group col-md-3">
-									<label for="gerenciadorPassivoCirculanteNotaFiscalView">Número da Nota Fiscal</label>
-									<input id="gerenciadorPassivoCirculanteNotaFiscalView" type="text" placeholder="Nota Fiscal" class="form-control" />
+									<label for="notaFiscal">Número da Nota Fiscal</label>
+									<input id="notaFiscal" name="notaFiscal" ng-model="passivoCirculanteModel.notaFiscal" type="text" placeholder="Nota Fiscal" class="form-control" />
                                 </div>
                                 
                                 <div class="form-group col-md-4">
-									<label for="passivoCirculanteProdutoServicoView">Produto/Serviço</label>
-									<input id="passivoCirculanteProdutoServicoView" type="text" placeholder="Descrição do Produto ou Serviço" class="form-control" />
+									<label for="produtoServicoDomain">Produto/Serviço</label>
+									<input id="produtoServicoDomain" name="produtoServicoDomain" ng-model="passivoCirculanteModel.produtoServicoDomain.nome" type="text" placeholder="Descrição do Produto ou Serviço" class="form-control" />
 								</div>
-
+                                
 								<div class="form-group col-md-4">
-									<label for="gerenciadorPassivoCirculanteProdutoServicoView">Categoria do Produto/Serviço</label>
-									<select id="gerenciadorPassivoCirculanteProdutoServicoView" class="selectpicker form-control" data-style="btn-default"
+									<label for="passivoCirculanteProdutoServicoView">Categoria do Produto/Serviço</label>
+									<select id="passivoCirculanteProdutoServicoView" name="passivoCirculanteProdutoServicoView" ng-model="passivoCirculanteModel.produtoServicoView" class="selectpicker form-control" data-style="btn-default"
 									 data-live-search="true">
 										<option>Selecione</option>
 										<option>Associação Religiosa</option>
@@ -520,18 +524,19 @@
 										<option>Cultural</option>
 										<option>Medicamentos</option>
 										<option>Aluguel</option>
-										<option>Remédios</option>
+                                        <option>Remédios</option>
+                                        <option>Consulta Médica</option>
 									</select>
 								</div>
 
 								<div class="form-group col-md-2">
-									<label for="gerenciadorPassivoCirculanteValorDespesaView">Valor da Despesa</label>
-									<input id="gerenciadorPassivoCirculanteValorDespesaView" type="text" placeholder="R$" class="form-control" />
+									<label for="valorPagamento">Valor da Despesa</label>
+									<input id="valorPagamento" name="valorPagamento" ng-model="passivoCirculanteModel.valorPagamento" type="text" placeholder="R$" class="form-control" />
                                 </div>
 
                                 <div class="form-group col-md-2">
-									<label for="gerenciadorPassivoCirculanteProdutoServicoView">Quantidade</label>
-									<select id="gerenciadorPassivoCirculanteProdutoServicoView" class="selectpicker form-control" data-style="btn-default"
+									<label for="passivoCirculanteProdutoServicoView">Quantidade</label>
+									<select id="passivoCirculanteProdutoServicoView" name="passivoCirculanteProdutoServicoView" ng-model="passivoCirculanteModel.produtoServicoView" class="selectpicker form-control" data-style="btn-default"
 									 data-live-search="true">
 										<option>1</option>
 										<option>2</option>
@@ -588,8 +593,8 @@
                                 </div>
 
                                 <div class="form-group col-md-4">
-									<label for="gerenciadorPassivoCirculanteResponsavelPagamentoView">Responsável pelo Pagamento</label>
-									<select id="gerenciadorPassivoCirculanteResponsavelPagamentoView" class="selectpicker form-control" data-style="btn-default"
+									<label for="resposavelPagamentoDomain">Responsável pelo Pagamento</label>
+									<select id="resposavelPagamentoDomain" name="resposavelPagamentoDomain" ng-model="passivoCirculanteModel.resposavelPagamentoDomain.nome" class="selectpicker form-control" data-style="btn-default"
 									 data-live-search="true">
 										<option>Selecione</option>
 										<option>Jamile Batista Alves</option>
@@ -598,8 +603,8 @@
 								</div>
 
 								<div class="form-group col-md-4">
-									<label for="gerenciadorPassivoCirculanteFontePagamentoView">Fonte do Pagamento</label>
-									<select id="gerenciadorPassivoCirculanteFontePagamentoView" class="selectpicker form-control" data-style="btn-default"
+									<label for="fontePagamentoDomain">Fonte do Pagamento</label>
+									<select id="fontePagamentoDomain" name="fontePagamentoDomain" ng-model="passivoCirculanteModel.fontePagamentoDomain.nome" class="selectpicker form-control" data-style="btn-default"
 									 data-live-search="true">
 										<option>Selecione</option>
 										<option>Banco Caixa Econômica Federal</option>
@@ -607,13 +612,13 @@
 										<option>Banco do Brasil</option>
 										<option>Banco Bradesco</option>
 										<option>Banco Nubank</option>
-										<option>Banco Inter</option>
+                                        <option>Banco Inter</option>
 									</select>
                                 </div>
                                 
 								<div class="form-group col-md-4">
-									<label for="gerenciadorPassivoCirculanteCanalPagamentoView">Canal do Pagamento</label>
-									<select id="gerenciadorPassivoCirculanteCanalPagamentoView" class="selectpicker form-control" data-style="btn-default"
+									<label for="tipoCanalPagamentoEnumeration">Canal do Pagamento</label>
+									<select id="tipoCanalPagamentoEnumeration" name="tipoCanalPagamentoEnumeration" ng-model="passivoCirculanteModel.tipoCanalPagamentoEnumeration" class="selectpicker form-control" data-style="btn-default"
 									 data-live-search="true">
                                         <option>Selecione</option>
                                         <option>Caixa do Estabelecimento</option>
@@ -623,8 +628,8 @@
                                 </div>
 
                                 <div class="form-group col-md-10">
-									<label for="gerenciadorPassivoCirculanteCanalPagamentoView">Forma de Pagamento</label>
-									<select id="gerenciadorPassivoCirculanteCanalPagamentoView" class="selectpicker form-control" data-style="btn-default"
+									<label for="passivoCirculanteCanalPagamentoView">Forma de Pagamento</label>
+									<select id="passivoCirculanteCanalPagamentoView" name="passivoCirculanteCanalPagamentoView" ng-model="passivoCirculanteModel.canalPagamentoView" class="selectpicker form-control" data-style="btn-default"
 									 data-live-search="true">
                                         <option>Selecione</option>
                                         <option>Dinheiro</option>
@@ -634,8 +639,8 @@
                                 </div>
                                 
                                 <div class="form-group col-md-2">
-									<label for="gerenciadorPassivoCirculanteProdutoServicoView">Parcelamento</label>
-									<select id="gerenciadorPassivoCirculanteProdutoServicoView" class="selectpicker form-control" data-style="btn-default"
+									<label for="passivoCirculanteProdutoServicoView">Parcelamento</label>
+									<select id="passivoCirculanteProdutoServicoView" name="passivoCirculanteProdutoServicoView" ng-model="passivoCirculanteModel.produtoServicoView" class="selectpicker form-control" data-style="btn-default"
                                      data-live-search="true">
                                         <option>0</option>
                                         <option>1</option>
@@ -650,7 +655,7 @@
 								<div class="card-body">
 									<div class="row">
 										<div class="col-md-10">
-											<button type="submit" class="btn btn-primary btn-block">Cadastrar Passivo Circulante</button>
+											<button type="submit" ng-click="save(passivoCirculanteModel)" class="btn btn-primary btn-block">Cadastrar Passivo Circulante</button>
 										</div>
 										<div class="col-md-2">
 											<button id="cancelarPassivoVinculanteButton" type="button" class="btn btn-danger btn-block">Cancelar</button>

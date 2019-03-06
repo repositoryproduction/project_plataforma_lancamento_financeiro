@@ -8,6 +8,7 @@
 	<meta content="" name="author" />
     <script type="text/javascript" src="../../resources/library/angular-js-v1.7.7/angular.min.js"></script>
     <script type="text/javascript" src="../module-gerenciador-passivo-circulante/module-gerenciador-passivo-circulante-controller/moduleGerenciadorPassivoCirculanteController.js"></script>
+    <!-- <script type="text/javascript" src="../module-gerenciador-passivo-circulante/module-gerenciador-passivo-circulante-service/moduleGerenciadorPassivoCirculantService.js"></script> -->
 	<link rel="stylesheet" href="../../resources/style/plataformalancamentofinanceiro.css" />
 	<link rel="stylesheet" href="../../resources/style/bootstrap-colorpicker.min.css" />
 	<link rel="stylesheet" href="../../resources/style/bootstrap-datepicker.min.css" />
@@ -237,12 +238,12 @@
 					<li class="has-sub">
 						<a href="#">
 							<span class="nav-icon"><i class="fa fa-envelope"></i> </span>
-							<span class="nav-text">Lançamentos</span>
+							<span class="nav-text">Passivo Circulante</span>
 							<span class="nav-caret"><b class="caret"></b></span>
 						</a>
 						<ul class="nav-submenu">
-							<li><a href="paginaGerenciadorPassivoCirculanteCadastrarView.html">Cadastrar Passivo Circulante</a></li>
-							<li><a href="paginaGerenciadorPassivoCirculanteConsultarView.html">Consultar Passivo Circulante</a></li>
+							<li><a href="paginaGerenciadorPassivoCirculanteCadastrarView.html">Cadastrar</a></li>
+							<li><a href="paginaGerenciadorPassivoCirculanteConsultarView.html">Gerenciar</a></li>
 						</ul>
 					</li>
 					<li class="nav-divider"></li>
@@ -500,7 +501,7 @@
 											<td>{{ gerenciadorPassivoCirculanteResultado.dataPagamento | date: 'dd/MM/yyyy' }}</td>
                                             <td>{{gerenciadorPassivoCirculanteResultado.favorecido.nome}}</td>
                                             <td>R$ {{gerenciadorPassivoCirculanteResultado.valorPagamento}}</td>
-                                            <td>{{gerenciadorPassivoCirculanteResultado.produtoServicoDomain.nome}}</td>
+                                            <td>{{gerenciadorPassivoCirculanteResultado.tipoCategoriaProdutoServicoEnumeration}}</td>
 											<td>{{gerenciadorPassivoCirculanteResultado.resposavelPagamentoDomain.nome}}</td>
 											<td class="btn-col" style="white-space: nowrap">
 												<a href="#" class="btn btn-primary btn-xs m-r-2"><i class="fa fa-table"></i></a>
