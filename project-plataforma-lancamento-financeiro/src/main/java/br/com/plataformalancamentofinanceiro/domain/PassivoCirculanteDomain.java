@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.plataformalancamentofinanceiro.enumeration.TipoCanalPagamentoEnumeration;
+import br.com.plataformalancamentofinanceiro.enumeration.TipoCategoriaProdutoServicoEnumeration;
 import br.com.plataformalancamentofinanceiro.enumeration.TipoPassivoCirculanteEnumeration;
 import br.com.plataformalancamentofinanceiro.enumeration.TipoSituacaoPagamentoEnumeration;
 
@@ -21,6 +22,8 @@ public class PassivoCirculanteDomain implements Serializable {
 	private Date dataPagamento;
 	
 	private ProdutoServicoDomain produtoServicoDomain;
+	
+	private TipoCategoriaProdutoServicoEnumeration tipoCategoriaProdutoServicoEnumeration;
 	
 	private String notaFiscal;
 	
@@ -68,6 +71,15 @@ public class PassivoCirculanteDomain implements Serializable {
 
 	public void setProdutoServicoDomain(ProdutoServicoDomain produtoServicoDomain) {
 		this.produtoServicoDomain = produtoServicoDomain;
+	}
+
+	public TipoCategoriaProdutoServicoEnumeration getTipoCategoriaProdutoServicoEnumeration() {
+		return tipoCategoriaProdutoServicoEnumeration;
+	}
+
+	public void setTipoCategoriaProdutoServicoEnumeration(
+			TipoCategoriaProdutoServicoEnumeration tipoCategoriaProdutoServicoEnumeration) {
+		this.tipoCategoriaProdutoServicoEnumeration = tipoCategoriaProdutoServicoEnumeration;
 	}
 
 	public String getNotaFiscal() {

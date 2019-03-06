@@ -6,6 +6,7 @@ import java.util.List;
 
 import br.com.plataformalancamentofinanceiro.domain.PassivoCirculanteDomain;
 import br.com.plataformalancamentofinanceiro.enumeration.TipoCanalPagamentoEnumeration;
+import br.com.plataformalancamentofinanceiro.enumeration.TipoCategoriaProdutoServicoEnumeration;
 import br.com.plataformalancamentofinanceiro.enumeration.TipoPassivoCirculanteEnumeration;
 import br.com.plataformalancamentofinanceiro.enumeration.TipoSituacaoPagamentoEnumeration;
 
@@ -20,6 +21,7 @@ public class PassivoCirculanteFactory {
 			passivoCirculanteDomain.setFontePagamentoDomain(PessoaFactory.getBancoFontePagamentoBancoSantander());
 			passivoCirculanteDomain.setNotaFiscal(null);
 			passivoCirculanteDomain.setProdutoServicoDomain(ProdutoServicoFactory.getProdutoServicoMensalidade());
+			passivoCirculanteDomain.setTipoCategoriaProdutoServicoEnumeration(TipoCategoriaProdutoServicoEnumeration.ASSOCIACAO_RELIGIOSA);
 			passivoCirculanteDomain.setResposavelPagamentoDomain(PessoaFactory.getResponsavelPagamentoJamileBatistaAlves());
 			passivoCirculanteDomain.setTipoCanalPagamentoEnumeration(TipoCanalPagamentoEnumeration.PAGAMENTO_INTERNET_BANKING);
 			passivoCirculanteDomain.setTipoPassivoCirculanteEnumeration(TipoPassivoCirculanteEnumeration.PASSIVO_CIRCULANTE_EXIGIVEL_LONGO_PRAZO);
@@ -36,6 +38,7 @@ public class PassivoCirculanteFactory {
 			passivoCirculanteDomain.setFontePagamentoDomain(PessoaFactory.getBancoFontePagamentoBancoSantander());
 			passivoCirculanteDomain.setNotaFiscal("5454785412");
 			passivoCirculanteDomain.setProdutoServicoDomain(ProdutoServicoFactory.getProdutoSupermercado());
+			passivoCirculanteDomain.setTipoCategoriaProdutoServicoEnumeration(TipoCategoriaProdutoServicoEnumeration.ALIMENTOS);
 			passivoCirculanteDomain.setResposavelPagamentoDomain(PessoaFactory.getResponsavelPagamentoJoseQuintin());
 			passivoCirculanteDomain.setTipoCanalPagamentoEnumeration(TipoCanalPagamentoEnumeration.PAGAMENTO_INTERNET_BANKING);
 			passivoCirculanteDomain.setTipoPassivoCirculanteEnumeration(TipoPassivoCirculanteEnumeration.PASSIVO_CIRCULANTE_EXIGIVEL_LONGO_PRAZO);
