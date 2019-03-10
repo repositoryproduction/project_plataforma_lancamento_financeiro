@@ -1,12 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="gerenciadorAtivoCirculanteModulo">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../../resources/style/plataformalancamentofinanceiro.css" />
+    <link rel="stylesheet" href="../../resources/style/bootstrap-select.min.css" />
+    <script type="text/javascript" src="../../resources/library/angular-js-v1.5.9/angular.min.js"></script>
+    <script type="text/javascript" src="../module-gerenciador-ativo-circulante/module-gerenciador-ativo-controller/moduleGerenciadorAtivoCirculanteController.js"></script>
+    <script src="../../resources/script/plataformalancamentofinanceiro.js"></script>
+    <script src="../../resources/script/bootstrap-select.min.js"></script>
     <title>Plataforma de Lançamento Financeiro</title>
 </head>
-<body>
-    
+
+<body ng-controller="gerenciadorAtivoCirculanteController">
+
+    <div class="card-header card-header-inverse">
+        <h4 class="card-header-title">Gerenciador de Ativo Circulante</h4>
+    </div>
+
+    <div class="card-body">
+
+        <form id="cadastrarPassivoCirculanteForm" class="row row-space-10 m-b-10">
+
+            <div class="form-group col-md-6">
+                <label for="fontePagamento">Fonte</label>
+                <select id="fontePagamento" name="fontePagamento" ng-model="gerenciadorAtivoCirculanteModel.fontePagamento" class="form-control" data-style="btn-default" data-live-search="false">
+                    <option>Indra Company Brazil</option>
+                    <option>Basis Tecnologia da Informação</option>
+                    <option>Stefanini It Solutions</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="categoria">Categoria</label>
+                <select id="categoria" name="categoria" ng-model="gerenciadorAtivoCirculanteModel.categoria" class="form-control" data-style="btn-default" data-live-search="true">
+                    <option>Composição de Salário Mensal</option>
+                    <option>Devolução de Empréstimo</option>
+                    <option>Recisão Contratual</option>
+                    <option>Retorno de Investimento Financeiro</option>
+                    <option>Receita de Vendas</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="numeroParcela">Parcela</label>
+                <select id="numeroParcela" name="numeroParcela" ng-model="gerenciadorAtivoCirculanteModel.numeroParcela" class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="valorParcela">Valor da Parcela</label>
+                <input id="valorParcela" name="valorParcela" ng-model="gerenciadorAtivoCirculanteModel.valorParcela" type="text" placeholder="R$ " class="form-control" />
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="dataRecebimento">Data do Recebimento</label>
+                <input id="dataRecebimento" name="dataRecebimento" ng-model="gerenciadorAtivoCirculanteModel.dataRecebimento" type="text" placeholder="DD/MM/AAAA" class="form-control" />
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="contaDestino">Conta Destino</label>
+                <select id="contaDestino" name="contaDestino" ng-model="gerenciadorAtivoCirculanteModel.contaDestino" class="form-control">
+                    <option>Banco Caixa Econômica Federal</option>
+                    <option>Banco Nubank</option>
+                    <option>Banco Santander Brazil</option>
+                    <option>Banco do Brasil</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-12">
+                <div class="form-group">
+                    <label for="observacao">Observação <span class="text-danger">*</span></label>
+                    <textarea id="observacao" name="observacao" ng-model="gerenciadorAtivoCirculanteModel.observacao" rows="2" placeholder="Observações Pertinentes" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <button id="saveButton" type="submit" ng-click="save(gerenciadorAtivoCirculanteModel)" class="btn btn-primary btn-block">Cadastrar Ativo Circulante</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="cancelButton" type="button" ng-click="cancel()" class="btn btn-danger btn-block">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="form-group col-md-12">
+            <h5>Ativo Circulante</h5>
+            <div class="card-body">
+                <table class="table table-hover m-b-0">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Data</th>
+                            <th>Fonte</th>
+                            <th>Categoria</th>
+                            <th>Valor</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="ativoCirculanteModelResult in gerenciadorAtivoCirculanteModelResult track by $index">
+                            <td>{{ativoCirculanteModelResult.codigo}}</td>
+                            <td>{{ativoCirculanteModelResult.dataRecebimento}}</td>
+                            <td>{{ativoCirculanteModelResult.fontePagamento}}</td>
+                            <td>{{ativoCirculanteModelResult.categoria}}</td>
+                            <td>{{ativoCirculanteModelResult.valorParcela}}</td>
+                            <td>
+                                <a href="#" ng-click="delete(ativoCirculanteModelResult)" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></a>
+                                <a href="#" ng-click="" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
 </body>
+
 </html>
