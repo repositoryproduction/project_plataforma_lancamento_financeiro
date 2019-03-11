@@ -1,6 +1,4 @@
-var gerenciadorAtivoCirculanteModulo = angular.module('gerenciadorAtivoCirculanteModulo',[]);
-
-gerenciadorAtivoCirculanteModulo.controller('gerenciadorAtivoCirculanteController', function($scope) {
+var gerenciadorAtivoCirculanteService = angular.service('GerenciadorAtivoCirculanteService', function() {
 
     var gerenciadorAtivoCirculanteModelList = [
         {
@@ -35,30 +33,14 @@ gerenciadorAtivoCirculanteModulo.controller('gerenciadorAtivoCirculanteControlle
         }
     ];
 
-    $scope.gerenciadorAtivoCirculanteModel = {};
-    
-    $scope.gerenciadorAtivoCirculanteModelResult = gerenciadorAtivoCirculanteModelList;
-    // console.log($scope.gerenciadorAtivoCirculanteModelResult);
-
     // save
-    $scope.save = function(gerenciadorAtivoCirculanteModel) {
-        // console.log(gerenciadorAtivoCirculanteModel);
-        $scope.gerenciadorAtivoCirculanteModelResult.push(gerenciadorAtivoCirculanteModel);
-        clear();
+    this.save = function(gerenciadorAtivoCirculanteModel) {
+        $scope.gerenciadorAtivoCirculanteModelResultList.push(gerenciadorAtivoCirculanteModel);
+        $scope.clear();
     };
 
-    // delete
-    $scope.delete = function(gerenciadorAtivoCirculanteModel) {
-        console.log('Excluir: ' + gerenciadorAtivoCirculanteModel.fontePagamento);
-        for( var i = 0, length = $scope.gerenciadorAtivoCirculanteModelResult.length ; i < length ; i++ ) {
-            if($scope.gerenciadorAtivoCirculanteModelResult[i].codigo == gerenciadorAtivoCirculanteModel.codigo) {
-                $scope.gerenciadorAtivoCirculanteModelResult.splice(i, 1);
-            }
-        }
-    }
-
     // clear
-    function clear() {
+    $scope.clear = function() {
         $scope.gerenciadorAtivoCirculanteModel = {};
     }
 
