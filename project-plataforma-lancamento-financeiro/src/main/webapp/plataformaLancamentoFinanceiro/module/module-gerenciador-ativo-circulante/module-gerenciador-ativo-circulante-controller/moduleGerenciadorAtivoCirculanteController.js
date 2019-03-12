@@ -43,18 +43,15 @@ gerenciadorAtivoCirculanteModulo.controller('gerenciadorAtivoCirculanteControlle
     $scope.verificador = function (gerenciadorAtivoCirculanteModel) {
         isRegistroEncontrado = false;
         $scope.delete(gerenciadorAtivoCirculanteModel);
-        console.log(gerenciadorAtivoCirculanteModel);
         for( var i = 0, length = $scope.gerenciadorAtivoCirculanteModelResultList.length ; i < length ; i++ ) {
             if($scope.gerenciadorAtivoCirculanteModelResultList[i].codigo == gerenciadorAtivoCirculanteModel.codigo) {
                 $scope.edit(gerenciadorAtivoCirculanteModel);
-                console.log('Edit...');
                 isRegistroEncontrado = true;
                 $scope.clear();               
                 break;
             } 
         }
         if(!isRegistroEncontrado) {
-            console.log('Save...');
             $scope.save(gerenciadorAtivoCirculanteModel);
         }
     }
