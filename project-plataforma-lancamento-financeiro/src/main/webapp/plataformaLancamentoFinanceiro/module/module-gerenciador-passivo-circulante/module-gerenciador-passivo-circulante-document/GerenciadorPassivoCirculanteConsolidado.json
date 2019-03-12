@@ -1,0 +1,80 @@
+[
+  {
+    "codigo": 1,
+    "favorecido": {
+      "codigo": null,
+      "tipoPessoaEnumeration": "PESSOA_JURIDICA",
+      "tipoCategoriaPessoaEnumeration": "ASSOCIACAO_RELIGIOSA",
+      "nome": "Sinagoga Keter Torah",
+      "isAtivo": true,
+      "isFontePagamento": false
+    },
+    "dataPagamento": 1552430218396,
+    "produtoServicoDomain": {
+      "codigo": null,
+      "nome": "Mensalidade",
+      "descricao": null
+    },
+    "tipoCategoriaProdutoServicoEnumeration": "ASSOCIACAO_RELIGIOSA",
+    "notaFiscal": null,
+    "valorPagamento": 500,
+    "fontePagamentoDomain": {
+      "codigo": null,
+      "tipoPessoaEnumeration": "PESSOA_JURIDICA",
+      "tipoCategoriaPessoaEnumeration": "INSTITUICAO_FINANCEIRA",
+      "nome": "Banco Santander",
+      "isAtivo": true,
+      "isFontePagamento": false
+    },
+    "tipoCanalPagamentoEnumeration": "PAGAMENTO_INTERNET_BANKING",
+    "resposavelPagamentoDomain": {
+      "codigo": null,
+      "tipoPessoaEnumeration": "PESSOA_FISICA",
+      "tipoCategoriaPessoaEnumeration": null,
+      "nome": "Jamile Batista Alves",
+      "isAtivo": true,
+      "isFontePagamento": true
+    },
+    "tipoPassivoCirculanteEnumeration": "PASSIVO_CIRCULANTE_EXIGIVEL_LONGO_PRAZO",
+    "tipoSituacaoPagamentoEnumeration": "PAGO"
+  },
+  {
+    "codigo": 2,
+    "favorecido": {
+      "codigo": null,
+      "tipoPessoaEnumeration": "PESSOA_JURIDICA",
+      "tipoCategoriaPessoaEnumeration": "SUPERMERCADO",
+      "nome": "Supermercado Pra Voce",
+      "isAtivo": true,
+      "isFontePagamento": false
+    },
+    "dataPagamento": 1552430218405,
+    "produtoServicoDomain": {
+      "codigo": null,
+      "nome": "Supermercado",
+      "descricao": null
+    },
+    "tipoCategoriaProdutoServicoEnumeration": "ALIMENTOS",
+    "notaFiscal": "5454785412",
+    "valorPagamento": 850,
+    "fontePagamentoDomain": {
+      "codigo": null,
+      "tipoPessoaEnumeration": "PESSOA_JURIDICA",
+      "tipoCategoriaPessoaEnumeration": "INSTITUICAO_FINANCEIRA",
+      "nome": "Banco Santander",
+      "isAtivo": true,
+      "isFontePagamento": false
+    },
+    "tipoCanalPagamentoEnumeration": "PAGAMENTO_INTERNET_BANKING",
+    "resposavelPagamentoDomain": {
+      "codigo": null,
+      "tipoPessoaEnumeration": "PESSOA_FISICA",
+      "tipoCategoriaPessoaEnumeration": null,
+      "nome": "Jose Quintin",
+      "isAtivo": true,
+      "isFontePagamento": true
+    },
+    "tipoPassivoCirculanteEnumeration": "PASSIVO_CIRCULANTE_EXIGIVEL_LONGO_PRAZO",
+    "tipoSituacaoPagamentoEnumeration": "PAGO"
+  }
+]
