@@ -1,0 +1,50 @@
+[
+    {
+        "codigo": 1,
+        "fontePagamento": {
+            "codigo": null,
+            "tipoPessoaEnumeration": "PESSOA_JURIDICA",
+            "tipoCategoriaPessoaEnumeration": null,
+            "nome": "Indra Company Brazil",
+            "isAtivo": true,
+            "isFontePagamento": true
+        },
+        "tipoAtivoCirculanteEnumeration": "ATIVO_CIRCULANTE_A",
+        "numeroParcela": "1",
+        "valorParcela": 8784,
+        "dataRecebimento": 1552861172650,
+        "contaDestinoPagamento": {
+            "codigo": null,
+            "tipoPessoaEnumeration": "PESSOA_JURIDICA",
+            "tipoCategoriaPessoaEnumeration": "INSTITUICAO_FINANCEIRA",
+            "nome": "Banco Santander",
+            "isAtivo": true,
+            "isFontePagamento": false
+        },
+        "observacao": null
+    },
+    {
+        "codigo": 2,
+        "fontePagamento": {
+            "codigo": null,
+            "tipoPessoaEnumeration": "PESSOA_JURIDICA",
+            "tipoCategoriaPessoaEnumeration": "INSTITUICAO_FINANCEIRA",
+            "nome": "Banco Caixa Economica Federal",
+            "isAtivo": true,
+            "isFontePagamento": true
+        },
+        "tipoAtivoCirculanteEnumeration": "ATIVO_CIRCULANTE_D",
+        "numeroParcela": "1",
+        "valorParcela": 10000,
+        "dataRecebimento": 1552861172650,
+        "contaDestinoPagamento": {
+            "codigo": null,
+            "tipoPessoaEnumeration": "PESSOA_JURIDICA",
+            "tipoCategoriaPessoaEnumeration": "INSTITUICAO_FINANCEIRA",
+            "nome": "Banco Santander",
+            "isAtivo": true,
+            "isFontePagamento": false
+        },
+        "observacao": null
+    }
+]

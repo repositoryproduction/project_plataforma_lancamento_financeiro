@@ -72,4 +72,14 @@ public class PessoaFactory implements Serializable {
 		return fontePagamentoDomain;
 	}
 	
+	public static PessoaDomain getFontePagamentoAtivoCirculanteIndraCompanyBrazil() {
+		PessoaDomain fontePagamentoDomain = new PessoaDomain();
+			fontePagamentoDomain.setIsAtivo(Boolean.TRUE);
+			fontePagamentoDomain.setIsFontePagamento(Boolean.TRUE);
+			fontePagamentoDomain.setNome("Indra Company Brazil");
+			fontePagamentoDomain.setTipoCategoriaPessoaEnumeration(null);
+			fontePagamentoDomain.setTipoPessoaEnumeration(TipoPessoaEnumeration.PESSOA_JURIDICA);
+		return fontePagamentoDomain;
+	}
+	
 }
