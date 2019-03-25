@@ -16,7 +16,7 @@ public class AtivoCirculanteFactory implements Serializable {
 	
 	public static AtivoCirculanteDomain getAtivoCirculanteDomainIndraCompanyBrazil() {
 		AtivoCirculanteDomain ativoCirculanteDomain = new AtivoCirculanteDomain();
-			ativoCirculanteDomain.setCodigo(1L);
+			ativoCirculanteDomain.setCodigo(null);
 			ativoCirculanteDomain.setContaDestinoPagamento(PessoaFactory.getBancoFontePagamentoBancoSantander());
 			ativoCirculanteDomain.setDataRecebimento(new Date());
 			ativoCirculanteDomain.setFontePagamento(PessoaFactory.getFontePagamentoAtivoCirculanteIndraCompanyBrazil());
@@ -29,7 +29,7 @@ public class AtivoCirculanteFactory implements Serializable {
 	
 	public static AtivoCirculanteDomain getAtivoCirculanteDomainCaixaEconomicaFederal() {
 		AtivoCirculanteDomain ativoCirculanteDomain = new AtivoCirculanteDomain();
-			ativoCirculanteDomain.setCodigo(2L);
+			ativoCirculanteDomain.setCodigo(null);
 			ativoCirculanteDomain.setContaDestinoPagamento(PessoaFactory.getBancoFontePagamentoBancoSantander());
 			ativoCirculanteDomain.setDataRecebimento(new Date());
 			ativoCirculanteDomain.setFontePagamento(PessoaFactory.getBancoCaixaEconomicaFederal());
