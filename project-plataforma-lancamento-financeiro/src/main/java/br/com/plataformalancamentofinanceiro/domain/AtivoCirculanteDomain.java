@@ -25,19 +25,25 @@ public class AtivoCirculanteDomain implements Serializable {
 	@Column(name = "CODIGO")
 	private Long codigo;
 	
+	@Column(name = "ID_FONTE_PAGAMENTO")
 	private PessoaDomain fontePagamento;
 	
+	@Column(name = "TIPO_ATIVO_CIRCULANTE")
 	private TipoAtivoCirculanteEnumeration tipoAtivoCirculanteEnumeration;
 	
+	@Column(name = "NUMERO_PARCELA")
 	private String numeroParcela;
 	
 	@Column(name = "VALOR_PARCELA", scale = 2, precision = 2)
 	private Double valorParcela;
 	
+	@Column(name = "DATA_RECEBIMENTO")
 	private Date dataRecebimento;
 	
+	@Column(name = "ID_DESTINO_PAGAMENTO")
 	private PessoaDomain contaDestinoPagamento;
 	
+	@Column(name = "OBSERVACAO")
 	private String observacao;
 	
 	public AtivoCirculanteDomain() { }
