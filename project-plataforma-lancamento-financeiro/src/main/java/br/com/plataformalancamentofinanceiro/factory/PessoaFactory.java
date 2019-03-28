@@ -1,6 +1,8 @@
 package br.com.plataformalancamentofinanceiro.factory;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.plataformalancamentofinanceiro.domain.PessoaDomain;
 import br.com.plataformalancamentofinanceiro.enumeration.TipoCategoriaPessoaEnumeration;
@@ -80,6 +82,18 @@ public class PessoaFactory implements Serializable {
 			fontePagamentoDomain.setTipoCategoriaPessoaEnumeration(null);
 			fontePagamentoDomain.setTipoPessoaEnumeration(TipoPessoaEnumeration.PESSOA_JURIDICA);
 		return fontePagamentoDomain;
+	}
+	
+	public static List<PessoaDomain> findAll() {
+		List<PessoaDomain> pessoaDomainList = new ArrayList<PessoaDomain>();
+			pessoaDomainList.add(getBancoCaixaEconomicaFederal());
+			pessoaDomainList.add(getBancoFontePagamentoBancoSantander());
+			pessoaDomainList.add(getFavorecidoSinagogaKeterTorah());
+			pessoaDomainList.add(getFontePagamentoAtivoCirculanteIndraCompanyBrazil());
+			pessoaDomainList.add(getResponsavelPagamentoJamileBatistaAlves());
+			pessoaDomainList.add(getResponsavelPagamentoJoseQuintin());
+			pessoaDomainList.add(getSupermercadoPraVoce());
+		return pessoaDomainList;
 	}
 	
 }

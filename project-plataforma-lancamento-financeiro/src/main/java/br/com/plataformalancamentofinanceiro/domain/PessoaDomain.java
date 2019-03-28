@@ -2,23 +2,39 @@ package br.com.plataformalancamentofinanceiro.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import br.com.plataformalancamentofinanceiro.enumeration.TipoCategoriaPessoaEnumeration;
 import br.com.plataformalancamentofinanceiro.enumeration.TipoPessoaEnumeration;
 
+@Entity
+@Table(name = "TB_PESSOA")
 public class PessoaDomain implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	
+	@Column(name = "TIPO_PESSOA")
 	private TipoPessoaEnumeration tipoPessoaEnumeration;
 	
+	@Column(name = "TIPO_CATEGORIA_PESSOA")
 	private TipoCategoriaPessoaEnumeration tipoCategoriaPessoaEnumeration;
 	
+	@Column(name = "NOME")
 	private String nome;
 	
+	@Column(name = "IS_ATIVO")
 	private Boolean isAtivo;
 	 
+	@Column(name = "IS_FONTE_PAGAMENTO")
 	private Boolean isFontePagamento;
 
 	public PessoaDomain() { }
